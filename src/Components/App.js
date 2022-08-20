@@ -2,6 +2,8 @@ import './App.css';
 import Header from './Header';
 import Input from './Input';
 import { useEffect, useState } from "react";
+import Search from './search/search.js';
+import CurrentWeather from './current-weather/current-weather';
 
 
 function App() {
@@ -50,8 +52,17 @@ function App() {
   let name = data?.name;
   let windSpeed = data?.wind.speed;
 
+  const handleOnSearchChange = (searchData) => {
+    console.log(searchData);
+  }
+
   return (
     <div className="App">
+      <div className="container">
+
+      </div>
+      <Search onSearchChange={handleOnSearchChange} />
+      <CurrentWeather />
       <Header />
       <p className='user-location-text'>Your location is {name}</p>
       <img src={icon} alt="weather icon" className='weather-icon' />
