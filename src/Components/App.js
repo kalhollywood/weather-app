@@ -1,7 +1,7 @@
 import './App.css';
 // import Header from './Header';
 // import Input from './Input';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Search from './search/search.js';
 import CurrentWeather from './current-weather/current-weather';
 import { WEATHER_API_URL, WEATHER_API_KEY } from '../api.js';
@@ -82,7 +82,7 @@ function App() {
       </div>
       <Search onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
-      <Forecast />
+      {forecast && <Forecast data={forecast} />}
       {/* <Header />
       <p className='user-location-text'>Your location is {name}</p>
       <img src={icon} alt="weather icon" className='weather-icon' />
