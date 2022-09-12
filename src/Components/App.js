@@ -6,6 +6,7 @@ import Search from './search/search.js';
 import CurrentWeather from './current-weather/current-weather';
 import { WEATHER_API_URL, WEATHER_API_KEY } from '../api.js';
 import Forecast from './forecast/forecast';
+import MapContainer from './Map';
 
 
 function App() {
@@ -78,19 +79,13 @@ function App() {
   return (
     <div className="App">
       <div className="container">
+        <MapContainer />
 
       </div>
       <Search onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
       {forecast && <Forecast data={forecast} />}
-      {/* <Header />
-      <p className='user-location-text'>Your location is {name}</p>
-      <img src={icon} alt="weather icon" className='weather-icon' />
-      <p className='temp-text'>Highest temperature is {tempMax.toString().substring(0, 5)} C</p>
-      <p className='temp-text'>Lowest temperature is {tempMin.toString().substring(0, 5)} C</p>
-      <p className='description-text'>Today there will be {description}</p>
-      <p className='wind-speed'>The windspeed is {windSpeed} mph</p>
-      <Input cityWeather={cityWeather} /> */}
+
     </div>
   );
 
