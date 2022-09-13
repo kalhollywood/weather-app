@@ -28,8 +28,7 @@ function MapContainer(props) {
     <LoadScript googleMapsApiKey="AIzaSyBfoRI7QkmzhSgXHoxVbguowVBzsWAn1G8">
       <GoogleMap
         mapContainerStyle={mapStyles}
-        zoom={15}
-        // center={center}
+        zoom={12}
         center={props.centerObj}
       >
         <CircleF

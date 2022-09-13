@@ -7,66 +7,40 @@ import CurrentWeather from './current-weather/current-weather';
 import { WEATHER_API_URL, WEATHER_API_KEY } from '../api.js';
 import Forecast from './forecast/forecast';
 import MapContainer from './Map';
+import { useEffect } from 'react';
 
 
 function App() {
 
   const [currentWeather, setCurrentWeather] = useState(null)
   const [forecast, setForecast] = useState(null)
-
-  const [lat, setLat] = useState()
-  const [lon, setLon] = useState()
-
-  // const [data, setData] = useState();
-  // const [city, setCityWeather] = useState();
-
-  window.addEventListener("load", () => {
-    navigator.geolocation.getCurrentPosition(positionFound, positionNotFound);
-    function positionFound(position) {
-      const lng = position.coords.longitude;
-      const lat = position.coords.latitude;
-      setUserLocation({ lat: lat, lng: lng });
-      setLocation({ lat: lat, lng: lng });
-    }
-    function positionNotFound(err) {
-      console.log(err);
-    }
-  });
-  console.log(lat, lon)
-
   const [location, setLocation] = useState({
     lat: 51.496681,
     lng: -0.050417,
   });
-
   const [userLocation, setUserLocation] = useState({
     lat: null,
     lng: null,
   });
 
-  // async function cityWeather(city) {
 
-  //   // const api = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=a295c4f759703a417a90170754552bff`
-  //   const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a295c4f759703a417a90170754552bff`
-  //   const response = await fetch(api);
-  //   // console.log(response)
-  //   const data = await response.json()
-  //   setCityWeather(data)
-  //   setData(city);
-  //   console.log(data);
-  // }
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      navigator.geolocation.getCurrentPosition(positionFound, positionNotFound);
+      function positionFound(position) {
+        const lng = position.coords.longitude;
+        const lat = position.coords.latitude;
+        setUserLocation({ lat: lat, lng: lng });
+        setLocation({ lat: lat, lng: lng });
 
-  // useEffect(() => {
-  //   setData(city);
-  // }, [city]);
+      }
+      function positionNotFound(err) {
+        console.log(err);
+      }
+    });
+  }, [location]);
 
-  // let tempMin = Number(data?.main.temp_min)
-  // let tempMax = Number(data?.main.temp_max)
 
-  // let description = data?.weather[0].description;
-  // let icon = `http://openweathermap.org/img/wn/${data?.weather[0].icon}@2x.png`;
-  // let name = data?.name;
-  // let windSpeed = data?.wind.speed;
 
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
@@ -82,8 +56,8 @@ function App() {
 
         setCurrentWeather({ city: searchData.label, ...weatherResponse });
         setForecast({ city: searchData.label, ...forecastResponse });
-        setLat(lat);
-        setLon(lon);
+        setLocation({ lat: Number(lat), lng: Number(lon) });
+        setUserLocation({ lat: Number(lat), lng: Number(lon) });
       })
       .catch((err) => console.log(err));
   }
