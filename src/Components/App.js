@@ -14,25 +14,35 @@ function App() {
   const [currentWeather, setCurrentWeather] = useState(null)
   const [forecast, setForecast] = useState(null)
 
+  const [lat, setLat] = useState()
+  const [lon, setLon] = useState()
+
   // const [data, setData] = useState();
   // const [city, setCityWeather] = useState();
 
-  // window.addEventListener("load", () => {
-  //   navigator.geolocation.getCurrentPosition(positionFound, positionNotFound);
-  //   async function positionFound(position) {
-  //     const long = position.coords.longitude;
-  //     const lat = position.coords.latitude;
-  //     const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=a295c4f759703a417a90170754552bff&units=metric`;
-  //     // const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=a295c4f759703a417a90170754552bff`;
-  //     const response = await fetch(api);
-  //     const data = await response.json();
-  //     console.log(data)
-  //     setData(data);
-  //   }
-  //   function positionNotFound(err) {
-  //     console.log(err);
-  //   }
-  // });
+  window.addEventListener("load", () => {
+    navigator.geolocation.getCurrentPosition(positionFound, positionNotFound);
+    function positionFound(position) {
+      const lng = position.coords.longitude;
+      const lat = position.coords.latitude;
+      setUserLocation({ lat: lat, lng: lng });
+      setLocation({ lat: lat, lng: lng });
+    }
+    function positionNotFound(err) {
+      console.log(err);
+    }
+  });
+  console.log(lat, lon)
+
+  const [location, setLocation] = useState({
+    lat: 51.496681,
+    lng: -0.050417,
+  });
+
+  const [userLocation, setUserLocation] = useState({
+    lat: null,
+    lng: null,
+  });
 
   // async function cityWeather(city) {
 
@@ -72,6 +82,8 @@ function App() {
 
         setCurrentWeather({ city: searchData.label, ...weatherResponse });
         setForecast({ city: searchData.label, ...forecastResponse });
+        setLat(lat);
+        setLon(lon);
       })
       .catch((err) => console.log(err));
   }
@@ -79,7 +91,9 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <MapContainer />
+        <MapContainer
+          centerObj={location}
+          userLocation={userLocation} />
 
       </div>
       <Search onSearchChange={handleOnSearchChange} />

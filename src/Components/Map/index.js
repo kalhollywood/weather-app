@@ -2,12 +2,13 @@ import React from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import { CircleF, MarkerF } from "@react-google-maps/api";
 
-function MapContainer() {
+function MapContainer(props) {
   const mapStyles = {
-    height: "50%",
-    width: "50%",
+    height: "200px",
+    width: "1000px",
     position: 'relative',
   };
+
 
   const options = {
     strokeColor: "#006390",
@@ -28,12 +29,15 @@ function MapContainer() {
       <GoogleMap
         mapContainerStyle={mapStyles}
         zoom={15}
-      // center={props.centerObj}
+        // center={center}
+        center={props.centerObj}
       >
         <CircleF
           options={options}
+          center={props.userLocation}
         />
-        <MarkerF />
+        <MarkerF
+          position={props.userLocation} />
 
       </GoogleMap>
     </LoadScript>
