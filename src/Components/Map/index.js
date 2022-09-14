@@ -25,25 +25,23 @@ function MapContainer(props) {
   };
 
   return (
-    <div className="map-container">
 
-      <LoadScript googleMapsApiKey="AIzaSyBfoRI7QkmzhSgXHoxVbguowVBzsWAn1G8">
-        <GoogleMap
-          className="google-map"
-          mapContainerStyle={mapStyles}
-          zoom={12}
-          center={props.centerObj}
-        >
-          <CircleF
-            options={options}
-            center={props.userLocation}
-          />
-          <MarkerF
-            position={props.userLocation} />
+    <LoadScript googleMapsApiKey="AIzaSyBfoRI7QkmzhSgXHoxVbguowVBzsWAn1G8">
+      <GoogleMap
+        className="google-map"
+        mapContainerStyle={mapStyles}
+        zoom={12}
+        center={props.centerObj}
+      >
+        <CircleF
+          options={options}
+          center={props.userLocation}
+        />
+        <MarkerF
+          position={props.userLocation} />
 
-        </GoogleMap>
-      </LoadScript>
-    </div>
+      </GoogleMap>
+    </LoadScript>
   );
 }
 export default MapContainer;

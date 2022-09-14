@@ -6,6 +6,7 @@
   font-size: 36px;
   font-weight: 700;
   padding: 40px 20px;
+  padding-top: 40px;
 }
 
 .daily-item {
@@ -17,11 +18,11 @@
   align-items: center;
   cursor: pointer;
   font-size: 40px;
-  padding: 5px 20px;
+  padding: 10px 20px;
 }
 
 .icon-small {
-  width: 40px;
+  width: 50px;
 }
 
 .day {
