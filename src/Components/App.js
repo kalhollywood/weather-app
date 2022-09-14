@@ -30,8 +30,18 @@ function App() {
       function positionFound(position) {
         const lng = position.coords.longitude;
         const lat = position.coords.latitude;
-        setUserLocation({ lat: lat, lng: lng });
         setLocation({ lat: lat, lng: lng });
+        setUserLocation({ lat: lat, lng: lng });
+        const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lng}&appid=${WEATHER_API_KEY}&units=metric`)
+        const forecastFetch = fetch(`${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lng}&appid=${WEATHER_API_KEY}&units=metric`)
+        Promise.all([currentWeatherFetch, forecastFetch])
+          .then(async (response) => {
+            const weatherResponse = await response[0].json()
+            const forecastResponse = await response[1].json()
+
+            setCurrentWeather({ city: "Your location", ...weatherResponse });
+            setForecast({ ...forecastResponse });
+          })
 
       }
       function positionNotFound(err) {
