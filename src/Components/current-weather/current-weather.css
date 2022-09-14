@@ -1,5 +1,5 @@
 * {
-  font-family: "Roboto";
+  font-family: "Poppins", sans-serif;
 }
 
 .weather {
@@ -39,10 +39,10 @@
 }
 
 .temperature {
-  font-weight: 600;
-  font-size: 65px;
+  font-weight: 400;
+  font-size: 60px;
   width: auto;
-  letter-spacing: -5px;
+  letter-spacing: 0px;
   margin: 10px 0;
 }
 
