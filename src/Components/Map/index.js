@@ -4,8 +4,8 @@ import { CircleF, MarkerF } from "@react-google-maps/api";
 
 function MapContainer(props) {
   const mapStyles = {
-    height: "200px",
-    width: "1000px",
+    height: "250px",
+    width: "100vw",
     position: 'relative',
   };
 
@@ -25,21 +25,25 @@ function MapContainer(props) {
   };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyBfoRI7QkmzhSgXHoxVbguowVBzsWAn1G8">
-      <GoogleMap
-        mapContainerStyle={mapStyles}
-        zoom={12}
-        center={props.centerObj}
-      >
-        <CircleF
-          options={options}
-          center={props.userLocation}
-        />
-        <MarkerF
-          position={props.userLocation} />
+    <div className="map-container">
 
-      </GoogleMap>
-    </LoadScript>
+      <LoadScript googleMapsApiKey="AIzaSyBfoRI7QkmzhSgXHoxVbguowVBzsWAn1G8">
+        <GoogleMap
+          className="google-map"
+          mapContainerStyle={mapStyles}
+          zoom={12}
+          center={props.centerObj}
+        >
+          <CircleF
+            options={options}
+            center={props.userLocation}
+          />
+          <MarkerF
+            position={props.userLocation} />
+
+        </GoogleMap>
+      </LoadScript>
+    </div>
   );
 }
 export default MapContainer;
