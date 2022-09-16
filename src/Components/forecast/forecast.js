@@ -12,6 +12,7 @@ const Forecast = ({ data }) => {
   return (
     <div className='forecast-container'>
       <label className="title">7 Day Forecast</label>
+      <p className='tap-text'>Click/tap for more details</p>
       <Accordion allowZeroExpanded>
         {data.list.splice(0, 7).map((item, idx) => (
           <AccordionItem key={idx}>
