@@ -9,7 +9,7 @@ function MapContainer(props) {
     position: 'relative',
     borderRadius: "15px",
     boxShadow: "10px -2px 20px 2px grey inset",
-    // border: "1px solid grey",
+
 
   };
 
