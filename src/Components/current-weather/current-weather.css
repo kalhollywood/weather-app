@@ -21,10 +21,11 @@
 
 .city {
   font-weight: 600;
-  font-size: 25px;
+  font-size: 30px;
   line-height: 1;
   margin: 0;
   letter-spacing: 1px;
+  padding-bottom: 10px;
 }
 
 .weather-description {

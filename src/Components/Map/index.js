@@ -7,9 +7,9 @@ function MapContainer(props) {
     height: "250px",
     width: "100vw",
     position: 'relative',
-    borderRadius: "10px",
-    boxShadow: "10px - 2px 20px 2px rgba(0 0 0 0.3)",
-    border: "1px solid black",
+    borderRadius: "15px",
+    boxShadow: "10px -2px 20px 2px grey inset",
+    // border: "1px solid grey",
 
   };
 

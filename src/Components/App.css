@@ -16,14 +16,17 @@
   margin: 20px auto;
   display: flex;
   justify-content: center;
+  padding: 0 10px;
 }
 
 h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   font-size: 2rem;
-  text-shadow: 2px 1px grey;
+  text-shadow: 1px 1px grey;
   text-decoration: wavy;
   margin: 0;
-  padding: 0;
+  padding: 20px 0 0 0;
   text-align: center;
 }
 
