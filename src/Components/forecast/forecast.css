@@ -69,3 +69,24 @@
 .daily-details-grid-item label:last-child {
   color: #212121;
 }
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 24px;
+  }
+  .forecast-container {
+    padding: 10px 10px;
+    margin-top: 20px;
+  }
+  .description {
+    flex: 1 1;
+    margin-right: 15px;
+    text-align: right;
+    font-size: 10px;
+  }
+
+  .min-max {
+    color: #757575;
+    font-size: 12px;
+  }
+}

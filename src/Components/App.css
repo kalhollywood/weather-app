@@ -12,6 +12,21 @@
 } */
 
 .container {
-  max-width: 1080px;
+  max-width: 1085px;
   margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2rem;
+  text-shadow: 2px 1px grey;
+  text-decoration: wavy;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.search {
+  max-width: 500px;
 }

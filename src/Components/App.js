@@ -74,13 +74,14 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Weather.app</h1>
       <div className="container">
         <MapContainer
           centerObj={location}
           userLocation={userLocation} />
 
       </div>
-      <Search onSearchChange={handleOnSearchChange} />
+      <Search class="search" onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
       {forecast && <Forecast data={forecast} />}
 
