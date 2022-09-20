@@ -9,6 +9,7 @@ const Search = ({ onSearchChange }) => {
 
   const [search, setSearch] = useState(null)
 
+  // This function runs a search on the Geo DB Cities API based on the user input and fetches any cities that contain the search parameter and pulls out the name, country code, latitude and longitude to make it available on App.js for the current weather, forecast and Google maps fetches.
   const loadOptions = async (inputValue) => {
     return await fetch(`${GEO_API_URL}/cities?minPopulation=5000&namePrefix=${inputValue}`, geoApiOptions)
       .then(response => response.json())
@@ -36,7 +37,7 @@ const Search = ({ onSearchChange }) => {
       <AsyncPaginate
         className='search'
         placeholder="Search for city"
-        debounceTimeout={600}
+        debounceTimeout={600} // Gives the user time to type more letters before searching
         value={search}
         onChange={handleOnChange}
         loadOptions={loadOptions}

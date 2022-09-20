@@ -3,19 +3,19 @@ import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import { CircleF, MarkerF } from "@react-google-maps/api";
 
 function MapContainer(props) {
+
+  // This code determines the style of the Google Maps window
   const mapStyles = {
     height: "250px",
     width: "100vw",
     position: 'relative',
     borderRadius: "15px",
-    boxShadow: "10px -2px 20px 2px grey inset",
-
-
+    boxShadow: "10px -2px 20px 2px grey inset"
   };
 
-
+  // This code styles the circle on the map
   const options = {
-    strokeColor: "#006390",
+    strokeColor: "#598392",
     strokeOpacity: 0.8,
     strokeWeight: 2,
     fillColor: "#fbb02d",

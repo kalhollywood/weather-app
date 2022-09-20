@@ -5,6 +5,7 @@ const WEEK_DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satu
 
 const Forecast = ({ data }) => {
 
+  // This code gets the current day of the week and then slices the week days array start the forecast from this point forwards and then concatenates the following week days to the end so that it shows the next 7 days from today.
   const dayInAWeek = new Date().getDay();
   const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(WEEK_DAYS.slice(0, dayInAWeek))
 
@@ -13,6 +14,9 @@ const Forecast = ({ data }) => {
     <div className='forecast-container'>
       <label className="title">7 Day Forecast</label>
       <p className='tap-text'>Click/tap for more details</p>
+
+      {/* As with current weather this component takes in the OpenWeather API data and maps through the first 7 forecast objects to obtain the details for the forecasted weather to render in each accordion item. */}
+
       <Accordion allowZeroExpanded>
         {data.list.splice(0, 7).map((item, idx) => (
           <AccordionItem key={idx}>

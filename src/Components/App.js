@@ -1,6 +1,4 @@
 import './App.css';
-// import Header from './Header';
-// import Input from './Input';
 import { useState } from "react";
 import Search from './search/search.js';
 import CurrentWeather from './current-weather/current-weather';
@@ -23,6 +21,7 @@ function App() {
     lng: null,
   });
 
+  // The useEffect below uses navigator to obtain the users location (assuming they allow this to be shared) and passes the coordinates into a fetch request from OpenWeather API and down to the Google Maps component via the location useState so that it shows their location on the map and their current and forecasted weather data.
 
   useEffect(() => {
     window.addEventListener("load", () => {
@@ -51,6 +50,7 @@ function App() {
   }, [location]);
 
 
+  // This function below takes the users search input selection and pulls out the latitude and longitude of the city selected and feeds it into a fetch request from the OpenWeather API then uses the various useStates to set the Google Maps to the appropriate location and display that cities current and forecasted weather.
 
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
@@ -76,6 +76,7 @@ function App() {
     <div className="App">
       <h1>Weather.app</h1>
       <div className="container">
+        {/* The map container passes down either the users location or the location of the city they have searched for. */}
         <MapContainer
           centerObj={location}
           userLocation={userLocation} />

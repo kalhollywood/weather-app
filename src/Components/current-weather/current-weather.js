@@ -1,5 +1,7 @@
 import './current-weather.css';
 
+// This function takes in the API data from the OpenWeather site and uses dot notation to access various information available to render it in the current weather tile.
+
 const CurrentWeather = ({ data }) => {
   return (
     <div className='weather'>
